@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 col-lg-4 col-xl-3" *ngFor="let post of postList">
+      <a [routerLink]="['/view']" [queryParams]="{ _id: post._id }">
+        <div class="card">
+          <img class="img-responsive" [src]="post.profile">
+          <div class="card-block">
+            <div class="card-title">{{post.topic}}</div>
+            <div class="card-text" [innerHTML]="post.content"></div>
+          </div>
+        </div>
+      </a>
+      <i *ngIf="authService.loggedIn()" class="fa fa-pencil fa-lg" aria-hidden="true" [routerLink]="['/dashboard', post._id]"></i>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row">
+    <div class="combo-box">
+      <input class="form-control" type="text" (focus)="toggleDropDown(true)" [(ngModel)]="catName">
+      <i class="fa fa-caret-down" aria-hidden="true" (click)="toggleDropDown(!caretDown)"></i>
+      <button class="btn btn-sm btn-outline-my" type="button" (click)="addNewCat()">+</button>
+      <ul [hidden]="!caretDown">
+        <li *ngFor="let d of catList | catFilter : 'name' : catName">
+          <span (click)="selectCat(d)" class="catName">{{d.name}}</span>
+          <i class="fa fa-times fa-lg" aria-hidden="true" (click)="delCat(d._id)"></i>
+          <i class="fa fa-pencil fa-lg" aria-hidden="true" (click)="editMode()"></i>
+        </li>
+      </ul>
+    </div>
+    <div class="list-selected row">
+      <div class="badge-container" *ngFor="let d of selectedCat">
+        <h3>
+          <span class="badge badge-default">{{d.name}}
+            <i class="fa fa-times fa" aria-hidden="true" (click)="deSelectCat(d)"></i>
+          </span>
+        </h3>
+      </div>
+    </div>
+  </div>
+</div>

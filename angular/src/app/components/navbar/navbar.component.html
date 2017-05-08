@@ -1,0 +1,33 @@
+<div class="left-nav" [ngClass]="{'open': visibleNav}">
+  <ul>
+    <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+      <a [routerLink]="['/']" class="home"><i class="fa fa-fw fa-home"></i> Flukky.Dev</a>
+    </li>
+    <li [routerLinkActive]="['active']" class="dropdown">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+        <i class="fa fa-fw fa-th-list"></i> หมวดหมู่ 
+        <span class="caret"></span>
+      </a>
+      <ul class="dropdown-menu">
+        <li [routerLinkActive]="['active']">
+          <a [routerLink]="['/']" [queryParams]="{ cat: 'all' }">ทั้งหมด</a>
+        </li>
+        <li *ngFor="let d of catList" [routerLinkActive]="['active']">
+          <a [routerLink]="['/']" [queryParams]="{ cat: d._id, name: d.name }">{{d.name}}</a>
+        </li>
+      </ul>
+    </li>
+    <li *ngIf="authService.loggedIn()" [routerLinkActive]="['active']">
+      <a [routerLink]="['/dashboard']"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+    </li>
+    <li *ngIf="!authService.loggedIn()" [routerLinkActive]="['active']">
+      <a [routerLink]="['/login']"><i class="fa fa-fw fa-sign-in"></i> Login</a>
+    </li>
+    <li *ngIf="!authService.loggedIn()" [routerLinkActive]="['active']">
+      <a [routerLink]="['/register']"><i class="fa fa-fw fa-user-plus"></i> Register</a>
+    </li>
+    <li *ngIf="authService.loggedIn()">
+      <a (click)="onLogoutClick()" href="#"><i class="fa fa-fw fa-sign-out"></i> Logout</a>
+    </li>
+  </ul>
+</div>

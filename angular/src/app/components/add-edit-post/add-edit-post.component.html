@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row">
+    <form (submit)="onAddPostSubmit()">
+      <div class="form-group">
+        <div class="row">
+          <div class="col-md-6">
+            <input type="text" [(ngModel)]="post.topic" name="topic" class="form-control" placeholder="TOPIC">
+          </div>
+          <div class="col-md-6">
+            <input type="text" [(ngModel)]="post.profile" name="profile" class="form-control" placeholder="PROFILE">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div [froalaEditor] [(froalaModel)]="post.content" name="content"></div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-10">
+            <app-manage-cat [cat]="post.cat" *ngIf="mode === 'Add' || post.cat" #manageCat (callback)="onCallback($event)"></app-manage-cat>
+          </div>
+          <div class="col-md-2 text-right">
+            <input type="checkbox" [(ngModel)]="post.isUse" name="isUse">
+            <label for="isUse">เผยแพร่</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <button type="button" [routerLink]="['/']" class="btn btn-outline-warning">Cancel</button>
+            <button type="submit" class="btn btn-outline-my">{{mode}}</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

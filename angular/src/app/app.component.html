@@ -1,0 +1,6 @@
+<app-navbar [visibleNav]="visibleNav"></app-navbar>
+<app-header-bar (callback)="onCallback($event)"></app-header-bar>
+<div class="overlay" *ngIf="visibleNav"></div>
+<div class="container-fluid" [ngClass]="{'open': visibleNav}">
+  <router-outlet></router-outlet>
+</div>

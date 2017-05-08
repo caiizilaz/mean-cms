@@ -1,0 +1,15 @@
+<div *ngIf="post" class="container main-container">
+  <div class="row">
+    <div class="container header-msg">
+      <div class="row">
+        <h2>{{post.topic}}</h2>
+      </div>
+    </div>
+    <div class="container content-container">
+      <div class="row">
+        <div class="content" [innerHTML]="post.content | safeHtml">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

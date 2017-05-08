@@ -1,0 +1,49 @@
+@import './assets/scss/_variables.scss';
+
+body {
+  font-family: $font !important;
+}
+
+.page-header {
+  margin-bottom: 25px;
+}
+
+.btn-outline-my {
+  color: $font-color-on-primary;
+  border-color: $primary-color !important;
+  background-color: $secondary-color;
+  &:hover {
+    color: $font-color-on-primary;
+    background-color: $secondary-color;
+    border-color: $secondary-color !important;
+  }
+}
+
+input[type="text"]::-webkit-input-placeholder {
+  color: $secondary-color;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+input.form-control, button.btn {
+  border-radius: 0;
+}
+
+.badge-default {
+  color: $font-color-on-primary !important;
+  background: $secondary-color !important;
+  font-weight: 500 !important;
+  border-radius: 0 !important;
+  font-size: 60% !important;
+}
+
+.header-msg {
+  border-bottom: 3px solid $primary-color;
+  h2 {
+    padding-left: 20px;
+    color: $secondary-color;
+    i {
+      color: $primary-color;
+    }
+  }
+}

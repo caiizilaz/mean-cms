@@ -1,0 +1,62 @@
+@import '../../../assets/scss/variables';
+
+.combo-box {
+  width: 300px;
+  input {
+    width: 250px;
+  }
+  button {
+    position: absolute;
+    left: 255px;
+    top: 5px
+  }
+  i.fa-caret-down {
+    position: absolute;
+    margin-top: -28px;
+    margin-left: 235px;
+    cursor: pointer;
+  }
+  ul {
+    list-style: none;
+    padding: 0;
+    position: absolute;
+    width: 250px;
+    background: $secondary-color;
+    color: $font-color-on-primary;
+    max-height: 85px;
+    overflow-y: auto;
+    z-index: 1;
+    li {
+      cursor: pointer;
+      padding: 2px 5px;
+      &:hover{
+        background: $primary-color;
+      }
+      span {
+        display: inline-block;
+        width: 84%;
+      }
+      i {
+        margin-top: 3px;
+        float: right;
+      }
+    }
+  }
+}
+
+.list-selected {
+  margin-left: 5px;
+  .badge-container {
+    margin: 3px 3px;
+    .badge {
+      i {
+        font-size: 15px;
+        color: red;
+        margin-top: -5px;
+        float: right;
+        margin-left: 5px;
+        cursor: pointer;
+      }
+    }
+  }
+}

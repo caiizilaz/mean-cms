@@ -1,0 +1,10 @@
+@mixin dotdotdot ($fs,$lh,$lts) {
+    font-size: $fs;
+    line-height: $lh;
+    -webkit-line-clamp: $lts;
+    height: ($fs*$lh*$lts)-1;
+    overflow: hidden;text-overflow: ellipsis;
+    display: -webkit-box;
+    max-width: 600px;
+    -webkit-box-orient: vertical;
+}
